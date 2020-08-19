@@ -319,6 +319,22 @@ client.on('message', async message => {
         let prize = args.slice(2).join(" ")
         if(!prize) return mesage.channel.send(`No prize specified!`)
         message.channel.send(`*Giveaway created in ${channel}*`)
+
+        let embed = new Discord.MessageEmbed()
+        .setTitle(`🎉 New Giveaway! 🎉`)
+        .setDescription(`
+**Host:** 🖥️ ${message.author} 🖥️
+**Prize:** 🎉 ${prize} 🎉
+**Time:** 🕐 ${Date.now()+ms(args[0])} 🕐
+        `)
+        .setTimestamp(Date.now()+ms(args[0]))
+        .setColor(`BLUE`)
+        let m = await channel.send(embed)
+        m.react("🎉")
+        setTimeout(() => {
+            let winner = m.reactions.cache.get("🎉").users.cache.filter(u=>!u.bot)
+            channel.send(`The winner for the giveaway for **${prize}** is ${winner}`)
+        }, ms(args[0]));
     }
 })
 
