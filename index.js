@@ -31,26 +31,6 @@ client.on('ready', async() => {
 
 //startup message
 
-
-//meme bot 
-
-client.on('message', async message => {
-    if (message.content === "$meme") {
-        const subReddits = ["dankmeme", "meme", "memes"]
-        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
-
-        const img = await randomPuppy(random);
-        const embed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setImage(img)
-        .setTitle(`From /r/${random}`)
-        .setURL(`https://reddit.com/r/${random}`);
-        message.channel.send(embed)
-    }
-})
-
-//meme bot
-
 //joke bot
 
 client.on('message', async message => {
