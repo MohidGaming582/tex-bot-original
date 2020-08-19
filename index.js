@@ -1,15 +1,15 @@
 
 //const stuff
 
-const Discord = require("discord.js");
+const Discord = require("discord.js")
 const client = new Discord.Client
-const { PREFIX } = require('./config.json');
-const db = require('quick.db');
-const ms = require('parse-ms');
-const fs = require('fs');
-const randomPuppy = require('random-puppy');
-const giveMeAJoke = require('discord-jokes');
-const api = require('covidapi');
+const { PREFIX } = require('./config.json')
+const db = require('quick.db')
+const ms = require('parse-ms')
+const fs = require('fs')
+const randomPuppy = require('random-puppy')
+const giveMeAJoke = require('discord-jokes')
+const api = require('covidapi')
 
 //const stuff
 
@@ -20,7 +20,6 @@ client.on('ready', async() => {
 })
 
 //startup message
-
 
 //economy bot
 
@@ -124,9 +123,12 @@ if (message.content.startsWith("$beg")) {
 
 })
 
+
+
 //economy bot
 
-//meme bot
+
+//meme bot 
 
 client.on('message', async message => {
     if (message.content === "$meme") {
@@ -167,7 +169,69 @@ client.on('message', async message => {
 
 //joke bot
 
-//help bot
+//covid-19 bot
+
+client.on('message', async message => {
+    if (message.content === "$covid") { 
+          
+        const data = await api.all()
+        const coronaembed = new Discord.MessageEmbed()
+        .setColor("#ff2050")
+        .setTitle("Global Covid-19 Status", "https://i.imgur.com/QzskBBq.jpg") 
+        .setDescription("Number of cases may differ from other sources")  
+        .addField("Cases", data.cases, inline = true)
+        .addField("Active", data.active, inline = true)
+        .addField("Cases Today", data.todayCases, inline = true)
+        .addField("Critical Cases", data.critical, inline = true)
+        .addField("Deaths", data.deaths, inline = true)
+        .addField("Recovered", data.recovered, inline = true)
+        .setThumbnail("https://i.imgur.com/QzskBBq.jpg")
+        .setFooter("This updates every second")
+        message.channel.send(coronaembed)
+    } else if (message.content.startsWith("$covid"))
+    var prefix = "$"
+    const countrycovid = message.content.slice(prefix.length).split(' ')
+    const countrydata = await api.countries({country: countrycovid})
+
+    const countryembed = new Discord.MessageEmbed()
+    .setColor("#ff2050")
+    .setTitle(`${countrycovid[1]} Cases`) 
+    .setDescription("Number of cases may differ from other sources")  
+    .addField("Cases", countrydata.cases, inline = true)
+    .addField("Active", countrydata.active, inline = true)
+    .addField("Cases Today", countrydata.todayCases, inline = true)
+    .addField("Critical Cases", countrydata.critical, inline = true)
+    .addField("Deaths", countrydata.deaths, inline = true)
+    .addField("Recovered", countrydata.recovered, inline = true)
+    .setThumbnail("https://i.imgur.com/QzskBBq.jpg")
+    .setFooter("This updates every second")
+    message.channel.send(countryembed)
+})
+
+//covid-19 bot
+
+
+//support bot
+
+client.on('message', async message => {
+    if (message.content === "$support") {
+        message.channel.send("Join our support server https://discord.gg/pwRVdQb")
+    }
+})
+
+//support bot
+
+//invite link
+
+client.on('message', async message => {
+    if (message.content === "$invite") {
+        message.channel.send("Invite this bot to your server https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot")
+    }
+})
+
+//invite link
+
+//help command
 
 client.on('message', async message => {
     if(message.content.startsWith("$help")) {
@@ -241,90 +305,6 @@ client.on('message', async message => {
     }
 })
 
-//help bot
-
-//covid bot
-
-client.on('message', async message => {
-    if (message.content === "$covid") { 
-          
-        const data = await api.all()
-        const coronaembed = new Discord.MessageEmbed()
-        .setColor("#ff2050")
-        .setTitle("Global Covid-19 Status", "https://i.imgur.com/QzskBBq.jpg") 
-        .setDescription("Number of cases may differ from other sources")  
-        .addField("Cases", data.cases, inline = true)
-        .addField("Active", data.active, inline = true)
-        .addField("Cases Today", data.todayCases, inline = true)
-        .addField("Critical Cases", data.critical, inline = true)
-        .addField("Deaths", data.deaths, inline = true)
-        .addField("Recovered", data.recovered, inline = true)
-        .setThumbnail("https://i.imgur.com/QzskBBq.jpg")
-        .setFooter("This updates every second")
-        message.channel.send(coronaembed)
-    } else if (message.content.startsWith("$covid"))
-    var prefix = "$"
-    const countrycovid = message.content.slice(prefix.length).split(' ')
-    const countrydata = await api.countries({country: countrycovid})
-
-    const countryembed = new Discord.MessageEmbed()
-    .setColor("#ff2050")
-    .setTitle(`${countrycovid[1]} Cases`) 
-    .setDescription("Number of cases may differ from other sources")  
-    .addField("Cases", countrydata.cases, inline = true)
-    .addField("Active", countrydata.active, inline = true)
-    .addField("Cases Today", countrydata.todayCases, inline = true)
-    .addField("Critical Cases", countrydata.critical, inline = true)
-    .addField("Deaths", countrydata.deaths, inline = true)
-    .addField("Recovered", countrydata.recovered, inline = true)
-    .setThumbnail("https://i.imgur.com/QzskBBq.jpg")
-    .setFooter("This updates every second")
-    message.channel.send(countryembed)
-})
-
-//covid bot
-
-//support bot
-
-client.on('message', async message => {
-    if (message.content === "$support") {
-        message.channel.send("Join our support server https://discord.gg/RAusGC3")
-    }
-})
-
-//support bot
-
-//invite bot
-
-client.on('message', async message => {
-    if (message.content === "$invite") {
-        message.channel.send("Invite this bot to your server https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot")
-    }
-})
-
-//invite bot
-
-//suggest bot
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//help command
 
 client.login(process.env.token);
