@@ -31,13 +31,6 @@ client.on('ready', async() => {
 
 //startup message
 
-//economy bot
-
-
-
-//economy bot
-
-
 //meme bot 
 
 client.on('message', async message => {
