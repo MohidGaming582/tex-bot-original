@@ -307,4 +307,31 @@ client.on('message', async message => {
 
 //help command
 
+//giveaway command
+
+if(!args[0]) return message.channel.send(`You did not specify the time!`)
+if(!args[0].endsWith("d")&&!args[0].endsWith("h")&&!args[0].endsWith("m")) return message.channel.send(`You didn\'t use correct formatting for the time!`)
+if(isNaN(args[0][0])) return message.channel.send(`That is not a number!`)
+let channel = message.mentions.channels.first()
+if(!channel) return message.channel.send(`That channel doesn\'t exist!`)
+let prize = args.slice(2).join(" ")
+if(!prize) return mesage.channel.send(`No prize specified!`)
+message.channel.send(`*Giveaway created in ${channel}*`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.login(process.env.token);
