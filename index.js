@@ -31,6 +31,7 @@ client.on('ready', async() => {
 
 //startup message
 
+
 //meme bot 
 
 client.on('message', async message => {
