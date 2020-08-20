@@ -238,7 +238,7 @@ client.on('message', async message => {
         const helpmainembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
-        .setColor("AQUA")
+        .setColor("BLUE")
         .addField("**Economy**", "``$help economy``", true)
         .addField("**Meme**", "``$help meme``", true)
         .addField("**Joke**", "``$help joke``", true)
