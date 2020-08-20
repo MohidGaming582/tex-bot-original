@@ -137,7 +137,7 @@ if(message.content.startsWith("$pay")) {
         return message.channel.send ('Negative money cannot be paid')
     }
     
-    if (member > 0) {
+    if (member < 0) {
         return message.channel.send (`You have 0 Tex Coins, get some money first.`)
     }
 
@@ -274,8 +274,7 @@ client.on('message', async message => {
         .addField("**CnJoke**", "``$help cnjoke``", true)
         .addField("**Covid-19**", "``$help covid``", true)
         .addField("**Support**", "``$help support``", true)
-        .addField("\u200B", "\u200B", true)
-        .addField("**Invite**", "$help invite", true)
+        .addField("**Invite**", "``$help invite``", true)
         message.channel.send(helpmainembed)
     }
 })
