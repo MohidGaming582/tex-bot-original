@@ -239,7 +239,7 @@ client.on('message', async message => {
         .setAuthor("Tex Bot Commands")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .addField("**Economy**", "``$help economy``", true)
-        .addField("**Meme**", "``$help meme", true)
+        .addField("**Meme**", "``$help meme``", true)
         .addField("**Joke**", "``$help joke``", true)
         .addField("**CnJoke**", "``$help cnjoke``", true)
         .addField("**Covid-19**", "``$help covid``", true)
