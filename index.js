@@ -122,7 +122,7 @@ if (message.content.startsWith("$beg")) {
 if(message.content.startsWith("$pay")) {
     let user = message.mentions.members.first()
     let member = db.fetch(`money_${message.author.id}`)
-
+    let money = db.fetch(`money_${user.id}`)
 
     if (!user) {
         return message.channel.send (`You forgot to mention someone`)
@@ -146,8 +146,8 @@ if(message.content.startsWith("$pay")) {
     }
 
     message.channel.send(`${message.author.tag}, You successfully paid ${user.user.username} ${args[1]}Tex Coins.`)
-    db.add(`message_${user.id}`, args[1])
-    db.subtract(`message_${message.author.id}`, args[1])
+    db.add(`money_${user.id}`, args[1])
+    db.subtract(`money_${message.author.id}`, args[1])
 }
 
 })
@@ -244,7 +244,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     if (message.content === "$support") {
-        message.channel.send("Join our support server https://discord.gg/pwRVdQb")
+        message.channel.send("Join our support server https://discord.gg/gF7d2HJ")
     }
 })
 
