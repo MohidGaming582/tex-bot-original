@@ -236,7 +236,7 @@ client.on('message', async message => {
 client.on('message', async message => {
     if(message.content.startsWith("$help")) {
         const helpembed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot Commands")
+        .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .addField("**Economy**", "``$help economy``", true)
         .addField("**Meme**", "``$help meme``", true)
@@ -244,9 +244,8 @@ client.on('message', async message => {
         .addField("**CnJoke**", "``$help cnjoke``", true)
         .addField("**Covid-19**", "``$help covid``", true)
         .addField("**Support**", "``$help support``", true)
-        .addField("\u200B", false)
+        .addField("\u200B", true)
         .addField("**Invite**", "``$help invite``", true)
-        .addField("\u200B")
         message.channel.send(helpembed)
     }
 })
