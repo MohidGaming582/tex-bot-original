@@ -245,8 +245,7 @@ client.on('message', async message => {
         .addField("**CnJoke**", "``$help cnjoke``", true)
         .addField("**Covid-19**", "``$help covid``", true)
         .addField("**Support**", "``$help support``", true)
-        .addField('\u200B', true)
-        .addField("**Invite**", "``$help invite``", true)
+        .addField("**Invite**", "``$help invite``", false)
         message.channel.send(helpmainembed)
     }
 })
