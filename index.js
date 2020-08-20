@@ -148,9 +148,6 @@ if(message.content.startsWith("$pay")) {
     message.channel.send(`${message.author.tag}, You successfully paid ${user.user.username} ${args[1]}Tex Coins.`)
     db.add(`message_${user.id}`, args[1])
     db.subtract(`message_${message.author.id}`, args[1])
-
-
-    
 }
 
 })
