@@ -322,6 +322,7 @@ client.on('message', async message => {
         const executeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setColor("GREEN")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setDescription(`<@&745126451044679800>`)
         .addField("**Bot Update V1.1** *(Alpha Version)*", "\u200B")
         .addField("\u200B", "\u200B")
