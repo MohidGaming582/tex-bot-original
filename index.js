@@ -246,6 +246,7 @@ client.on('message', async message => {
         .addField("**Support**", "``$help support``", true)
         .addField("\u200B", false)
         .addField("**Invite**", "``$help invite``", true)
+        .addField("\u200B")
         message.channel.send(helpembed)
     }
 })
