@@ -319,7 +319,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     if(message.content === "$executechangelogv1.1") {
-        const embed = new Discord.MessageEmbed()
+        const executeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setColor("GREEN")
         .setDescription(`<@&745126451044679800>`)
@@ -329,7 +329,7 @@ client.on('message', async message => {
         .addField("```1-) Changed the help command. Now better.```", "\u200B")
         .setFooter("Thats all in v1.1 changelog")
         .setTimestamp()
-        message.channel.send(embed)
+        message.channel.send(executeembed)
     }
 })
 
