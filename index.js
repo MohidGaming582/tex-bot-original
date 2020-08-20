@@ -32,7 +32,7 @@ client.on('message', async message => {
 
         else {
             let embed = new Discord.MessageEmbed()
-            .setAuthor(`Personal Bank`, message.author.displayAvatarURL)
+            .setAuthor(`Wallet`, message.author.displayAvatarURL)
             .setColor("YELLOW")
             .setDescription(`**Total Tex Coins**`)
             .addField(`Coins`, money)
@@ -85,7 +85,7 @@ if (message.content.startsWith("$work")) {
         let embed = new Discord.MessageEmbed()
 
         .setAuthor(`${message.author.tag}, it payed off`, message.author.displayAvatarURL())
-        .setDescription(`${message.author}, you worked as a ${job} and earned ${amountearned}`)
+        .setDescription(`${message.author}, you worked as a ${job} and earned ${amountearned} Tex Coins`)
 
         message.channel.send(embed)
 
@@ -109,8 +109,8 @@ if (message.content.startsWith("$beg")) {
 
         let embed = new Discord.MessageEmbed()
 
-        .setAuthor(`${message.author.tag}, it payed off`, message.author.displayAvatarURL())
-        .setDescription(`${message.author}, you begged and got ${amountearned}`)
+        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL())
+        .setDescription(`${message.author}, you begged and got ${amountearned} Tex Coins`)
 
         message.channel.send(embed)
 
@@ -119,7 +119,39 @@ if (message.content.startsWith("$beg")) {
     } 
 }
 
+if(message.content.startsWith("$pay")) {
+    let user = message.mentions.members.first()
+    let member = db.fetch(`money_${message.author.id}`)
 
+
+    if (!user) {
+        return message.channel.send (`You forgot to mention someone`)
+    }
+
+    if (!args[1]) {
+        return message.channel.send(`Please specify an amount`)
+    }
+    
+
+    if(message.content.includes('-')) {
+        return message.channel.send ('Negative money cannot be paid')
+    }
+    
+    if (member > 0) {
+        return message.channel.send (`You have 0 Tex Coins, get some money first.`)
+    }
+
+    if (member < args[1]) {
+        return message.channel.send (`Thats more money than you got in your wallet.`)
+    }
+
+    message.channel.send(`${message.author.tag}, You successfully paid ${user.user.username} ${args[1]}Tex Coins.`)
+    db.add(`message_${user.id}`, args[1])
+    db.subtract(`message_${message.author.id}`, args[1])
+
+
+    
+}
 
 })
 
@@ -315,6 +347,5 @@ client.on('message', async message => {
 })
 
 //help command
-
 
 client.login(process.env.token);
