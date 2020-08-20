@@ -236,8 +236,15 @@ client.on('message', async message => {
 client.on('message', async message => {
     if(message.content.startsWith("$help")) {
         const embed = new Discord.MessageEmbed()
-        .setDescription("Please write what type of help you want. Following modules are: economy, meme, joke, cnjoke, covid, support, invite")
-        .setFooter("Write $help {moduleName}")
+        .setAuthor("Tex Bot Commands")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .addField("**Economy**", "``$help economy``", true)
+        .addField("**Meme**", "``$help meme", true)
+        .addField("**Joke**", "``$help joke``", true)
+        .addField("**CnJoke**", "``$help cnjoke``", true)
+        .addField("**Covid-19**", "``$help covid``", true)
+        .addField("**Support**", "``$help support``", true)
+        .addField("**Invite**", "``$help invite**", true)
         message.channel.send(embed)
     }
 })
@@ -306,52 +313,5 @@ client.on('message', async message => {
 })
 
 //help command
-
-//giveaway command
-
-client.on('message', async message => {
-    if(message.content === "$gstart") {
-        if (!args[0]) return message.channel.send(`You did not specify the time!`)
-        if (!args[0].endsWith("d")&&!args[0].endsWith("h")&&!args[0].endsWith("m")) return message.channel.send(`You didn\'t use correct formatting for the time!`)
-        if (isNaN(args[0][0])) return message.channel.send(`That is not a number!`)
-        let channel = message.mentions.channels.first()
-        if (!channel) return message.channel.send(`That channel doesn\'t exist!`)
-        let prize = args.slice(2).join(" ")
-        if (!prize) return mesage.channel.send(`No prize specified!`)
-        message.channel.send(`*Giveaway created in ${channel}*`)
-
-        let embed = new Discord.MessageEmbed()
-        .setTitle(`🎉 New Giveaway! 🎉`)
-        .setDescription(`
-**Host:** 🖥️ ${message.author} 🖥️
-**Prize:** 🎉 ${prize} 🎉
-**Time:** 🕐 ${Date.now()+ms(args[0])} 🕐
-        `)
-        .setTimestamp(Date.now()+ms(args[0]))
-        .setColor(`BLUE`)
-        let m = await channel.send(embed)
-        m.react("🎉")
-        setTimeout(() => {
-            let winner = m.reactions.cache.get("🎉").users.cache.filter(u=>!u.bot)
-            channel.send(`The winner for the giveaway for **${prize}** is ${winner}`)
-        }, ms(args[0]));
-    }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 client.login(process.env.token);
