@@ -316,7 +316,7 @@ client.on('message', async message => {
 
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${prefix}executechangelog`)) {
+    if(message.content === "$executechangelog") {
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Tex Bot`, "https://i.imgur.com/ZHUpgyz.png")
         .setDescription(`<@&745955430592806922>`)
