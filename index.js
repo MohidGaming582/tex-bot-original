@@ -318,13 +318,13 @@ client.on('message', async message => {
 client.on('message', async message => {
     if(message.content === "$executechangelog") {
         const embed = new Discord.MessageEmbed()
-        .setAuthor(`Tex Bot`, "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription(`<@&745955430592806922>`)
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setDescription("<@&745955430592806922>")
         .addField("**Bot Update V1.1.1 (Alpha Version)**", "\u200B")
         .addField("\u200B', '\u200B")
         .addField("``Changelog v1.1.1")
         .addField("```1-) Changed the help command. Now better.```")
-        .setFooter(`Thats all in v1.1 changelog`)
+        .setFooter("Thats all in v1.1 changelog")
         .setTimestamp()
         message.channel.send(embed)
     }
