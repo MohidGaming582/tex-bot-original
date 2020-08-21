@@ -323,8 +323,6 @@ client.on('message', async message => {
 })
 //help command
 
-
-
 client.on('message', async message => {
     if(message.content.startsWith("$executechangelog")) {
         const embed = new Discord.MessageEmbed()
@@ -339,15 +337,5 @@ client.on('message', async message => {
         message.channel.send(embed)
     }
 })
-
-
-
-
-
-
-
-
-
-
 
 client.login(process.env.token);
