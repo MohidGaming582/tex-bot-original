@@ -237,13 +237,13 @@ client.on('message', async message => {
         .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setColor("BLUE")
-        .addField("💸**Economy**💸", "``$help economy``", true)
-        .addField("🤣**Meme**🤣", "``$help meme``", true)
-        .addField("😆**Joke**😆", "``$help joke``", true)
-        .addField("🖥️**CnJoke**🖥️", "``$help cnjoke``", true)
-        .addField("⚠️**Covid-19**⚠️", "``$help covid``", true)
-        .addField("👷**Support**👷", "``$help support``", true)
-        .addField("❗**Invite**❗", "``$help invite``", true)
+        .addField("💸 **Economy** 💸", "``$help economy``", true)
+        .addField("🤣 **Meme** 🤣", "``$help meme``", true)
+        .addField("😆 **Joke** 😆", "``$help joke``", true)
+        .addField("🖥️ **CnJoke** 🖥️", "``$help cnjoke``", true)
+        .addField("⚠️ **Covid-19** ⚠️", "``$help covid``", true)
+        .addField("👷 **Support** 👷", "``$help support``", true)
+        .addField("❗ **Invite** ❗", "``$help invite``", true)
         message.channel.send(helpmainembed)
     }
 })
@@ -317,25 +317,10 @@ client.on('message', async message => {
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Help for Covid-19")
-        .setDescription("Write **$covid** to check global covid stats and **$covid <countryName> to check country covid stats")
+        .setDescription("Write **$covid** to check global covid stats and **$covid <countryName>** to check country covid stats")
         message.channel.send(covidembed)
     }
 })
 //help command
 
-client.on('message', async message => {
-    if(message.content.startsWith("$executechangelog")) {
-        const embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("<@&745955430592806922>")
-        .addField("**Bot Update V1.1.1 (Alpha Version)**", "\u200B")
-        .addField("\u200B', '\u200B")
-        .addField("``Changelog v1.1.1")
-        .addField("```1-) Changed the help command. Now better.```")
-        .setFooter("Thats all in v1.1 changelog")
-        .setTimestamp()
-        message.channel.send(embed)
-    }
-})
-
-client.login(process.env.token);
+client.login('NzQzNzY4MjY2Nzc3ODIxMjE0.XzZeLQ.ag3ixcCZLfEPT6-GmhjfO-XcqmM');
