@@ -323,4 +323,4 @@ client.on('message', async message => {
 })
 //help command
 
-client.login('NzQzNzY4MjY2Nzc3ODIxMjE0.XzZeLQ.ag3ixcCZLfEPT6-GmhjfO-XcqmM');
+client.login(process.env.token);
