@@ -1,6 +1,6 @@
 {
   "name": "tex-bot",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,9 +17,6 @@
     "node-fetch": "^2.6.0",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.1",
-    "quickdb": "^1.0.5",
-    "random-puppy": "^1.1.0",
-    "sqlite": "^4.0.14",
-    "vultrex.db": "^1.4.1"
+    "random-puppy": "^1.1.0"
   }
 }
