@@ -311,6 +311,16 @@ client.on('message', async message => {
     }
 })
 
+client.on('message', async message => {
+    if(message.content.startsWith("$help covid")) {
+        const covidembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Help for Covid-19")
+        .setDescription("Write **$covid** to check global covid stats and **$covid <countryName> to check country covid stats")
+        message.channel.send(covidembed)
+    }
+})
 //help command
 
 
