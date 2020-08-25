@@ -342,15 +342,16 @@ client.on('message', async message => {
 //only dev command
 
 client.on('message', async message => {
-    if(message.content.startsWith("$changelog")) {
+    if(message.content.startsWith("$changelog 2")) {
         const changelog = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setTitle("<@&746328566366732338>")
-        .setDescription("**Bot Update V1.2** *Alpha Version*")
+        .setTitle("<@&747766531353477160>")
+        .setDescription("**Bot Update V1.2** ***Alpha Version***")
+        .setColor("GREEN")
         .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.2``")
-        .addField("```1-) Added Moderation Commands.```")
-        .setFooter("That's all in changelog v1.2!")
+        .addField("``Changelog V1.2``", "\u200B")
+        .addField("```1-) Added Moderation Commands.```", "\u200B")
+        .setFooter("That's all in changelog v1.2")
         .setTimestamp()
         message.channel.send(changelog)
     }
