@@ -343,18 +343,50 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`$changelog`)) {
+    if(message.content.startsWith(`${PREFIX}changelog ${args[0]}`)) {
         const changelogembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
+        .setDescription("**Bot Update V1.1** ***(Alpha Version)***")
         .setColor("GREEN")
         .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.2``", "\u200B")
-        .addField("```1-) Added Moderation Commands.```", "\u200B")
-        .setFooter("That's all in changelog v1.2")
+        .addField("``Changelog V1.1``", "\u200B")
+        .addField("```1-) Changed help command layout.```", "\u200B")
+        .setFooter("That's all in changelog v1.1. Write $changelog2 to check changelog of V1.2")
         .setTimestamp()
         message.channel.send(changelogembed)
     }
 })
 
+client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    if(message.content.startsWith(`${PREFIX}changelog2 ${args[0]}`)) {
+        const changelogembed2 = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
+        .setColor("GREEN")
+        .addField("\u200B", "\u200B")
+        .addField("``Changelog V1.2``", "\u200B")
+        .addField("```1-) Added kick and ban commands.```", "\u200B")
+        .setFooter("That's all in changelog v1.2")
+        .setTimestamp()
+        message.channel.send(changelogembed2)
+    }
+})
+
 client.login(process.env.token);
+
+
+
+
+
+
+const changelogembed = new Discord.MessageEmbed()
+.setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+.setDescription("**Bot Update V1.2** ***(Alpha Version)***")
+.setColor("GREEN")
+.addField("\u200B", "\u200B")
+.addField("``Changelog V1.2``", "\u200B")
+.addField("```1-) Added Moderation Commands.```", "\u200B")
+.setFooter("That's all in changelog v1.2")
+.setTimestamp()
+message.channel.send(changelogembed)
