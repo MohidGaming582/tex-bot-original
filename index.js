@@ -342,8 +342,8 @@ client.on('message', async message => {
 
 
 client.on('message', async message => {
-    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}changelog ${args[0]}`)) {
+        const args = message.content.substring(PREFIX.length).split(" ")
         const changelogembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setDescription("**Bot Update V1.1** ***(Alpha Version)***")
@@ -358,8 +358,8 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}changelog2 ${args[0]}`)) {
+        const args = message.content.substring(PREFIX.length).split(" ")
         const changelogembed2 = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
