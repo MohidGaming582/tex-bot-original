@@ -342,11 +342,7 @@ client.on('message', async message => {
 //only dev command
 
 client.on('message', async message => {
-    let devID = '744941579487412336'
-
-    if(message.author.id !== devID) return;
-
-    if(message.content.startsWith("$changelogv1.2")) {
+    if(message.content.startsWith("$changelog")) {
         const changelog = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setTitle("<@&746328566366732338>")
