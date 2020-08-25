@@ -344,7 +344,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`$changelog2 ${args[0]}`)) {
+    if(message.content.startsWith(`$changelog`)) {
         const changelogembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setTitle("<@&747766531353477160>")
