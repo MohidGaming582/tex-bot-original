@@ -4,6 +4,7 @@
 const Discord = require("discord.js")
 const client = new Discord.Client
 const { PREFIX } = require('./config.json')
+const moment = require('moment')
 const db = require('quick.db')
 const ms = require('parse-ms')
 const fs = require('fs')
@@ -322,5 +323,83 @@ client.on('message', async message => {
     }
 })
 //help command
+
+    //moderator commands:
+
+//kick command
+
+client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    const mentionedMember = message.mentions.members.first()
+
+    if(message.content.startsWith(`${PREFIX}kick`)) {
+        const reason = args.slice(2).join(" ")
+        if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send("You don\'t have permission to do this command!")
+        if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send("I don\'t have permission to kick members")
+        if (!args[1]) return message.channel.send("You need to specify someone to kick")
+        if (!mentionedMember) return message.channel.send("I can\'t find that member")
+        if (mentionedMember.roles.highest.position >= message.member.roles.highest.position || message.author.id !== message.guild.owner.id) {
+            return message.channel.send("You can\'t kick this member due to your role being lower than theirs or they are the guild owner")
+
+        }
+        if (mentionedMember.id === message.author.id) return message.channel.send("Why would you want to kick yourself?")
+        if (mentionedMember.kickable) {
+            var embed = new Discord.MessageEmbed()
+            .setAuthor(`${message.author.username} - (${message.author.id})`, message.author.displayAvatarURL())
+            .setThumbnail(mentionedMember.user.displayAvatarURL())
+            .setColor('#ebb734')
+            .setDescription(`
+**Member:** ${mentionedMember.user.username} = (${mentionedMember.user.id})
+**Action:** Kick
+**Reason** ${reason || "Undefined"}
+**Time:** ${moment().format('llll')}
+            `)
+            message.channel.send(embed)
+            mentionedMember.kick()
+        }
+    } else {
+        return message.channel.send("I can\'t kick this user make sure I have permissions")
+    }
+    return undefined
+})
+
+//kick command
+
+//ban command
+
+if(message.content.startsWith(`${PREFIX}ban`)) {
+    const reason = args.slice(2).join(" ")
+    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You don\'t have permission to do this command!")
+    if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send("I don\'t have permission to ban members")
+    if (!args[1]) return message.channel.send("You need to specify someone to ban")
+    if (!mentionedMember) return message.channel.send("I can\'t find that member")
+    if (mentionedMember.roles.highest.position >= message.member.roles.highest.position && message.author.id !== message.guild.owner.id) {
+        return message.channel.send("You can\'t ban that member due to their roles being higher than yours or they are the owner")
+    
+    }
+    if (mentionedMember.id === message.author.id) return message.channel.send("Why would you want to ban yourself?")
+    if (mentionedMember.bannable) {
+        var embed = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.username} - (${message.author.id})`, message.author.displayAvatarURL())
+        .setThumbnail(mentionedMember.user.displayAvatarURL())
+        .setColor('#ebb734')
+        .setDescription(`
+**Member:** ${mentionedMember.user.username} = (${mentionedMember.user.id})
+**Action:** Ban
+**Reason:** ${reason || "Undefined"}
+**Channel:** ${message.channel}
+**Time:** ${moment().format('llll')} 
+        `)
+        message.channel.send(embed)
+        mentionedMember.ban()
+    } else {
+        return message.channel.send("I don\'t have permission to ban this member make sure my role is above theirs")
+    }
+    return undefined
+}
+
+
+
+
 
 client.login(process.env.token);
