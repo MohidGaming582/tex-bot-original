@@ -339,10 +339,11 @@ client.on('message', async message => {
 })
 //help command
 
-//only dev command
+//changelog commands
 
+const args = message.content.slice()
 client.on('message', async message => {
-    if(message.content.startsWith("$changelog 2")) {
+    if(message.content.startsWith("$changelog2")) {
         const changelog = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setTitle("<@&747766531353477160>")
