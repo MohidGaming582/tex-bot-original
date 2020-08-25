@@ -374,19 +374,3 @@ client.on('message', async message => {
 })
 
 client.login(process.env.token);
-
-
-
-
-
-
-const changelogembed = new Discord.MessageEmbed()
-.setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-.setDescription("**Bot Update V1.2** ***(Alpha Version)***")
-.setColor("GREEN")
-.addField("\u200B", "\u200B")
-.addField("``Changelog V1.2``", "\u200B")
-.addField("```1-) Added Moderation Commands.```", "\u200B")
-.setFooter("That's all in changelog v1.2")
-.setTimestamp()
-message.channel.send(changelogembed)
