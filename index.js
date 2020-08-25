@@ -326,7 +326,6 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("You don\'t have permission to do this command.") 
     if(message.content.startsWith("$help moderator")) {
         const modembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
