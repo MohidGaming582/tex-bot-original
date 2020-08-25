@@ -347,7 +347,7 @@ client.on('message', async message => {
     if(message.content.startsWith(`$changelog`)) {
         const changelogembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setTitle("<@&745126451044679800>")
+        .setTitle(`<@&745126451044679800>`)
         .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
         .setColor("GREEN")
         .addField("\u200B", "\u200B")
