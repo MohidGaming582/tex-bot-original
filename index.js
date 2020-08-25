@@ -332,7 +332,7 @@ client.on('message', async message => {
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Help for Moderator")
-        .setDescription("Write **$kick <memberName>** to kick someone and **$ban <memberName> to ban someone!")
+        .setDescription("Write **$kick <memberName>** to kick someone and **$ban <memberName>** to ban someone!")
         .setFooter("<> means it is required")
         message.channel.send(modembed)
     }
