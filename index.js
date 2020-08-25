@@ -367,36 +367,39 @@ client.on('message', async message => {
 
 //ban command
 
-if(message.content.startsWith(`${PREFIX}ban`)) {
-    const reason = args.slice(2).join(" ")
-    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You don\'t have permission to do this command!")
-    if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send("I don\'t have permission to ban members")
-    if (!args[1]) return message.channel.send("You need to specify someone to ban")
-    if (!mentionedMember) return message.channel.send("I can\'t find that member")
-    if (mentionedMember.roles.highest.position >= message.member.roles.highest.position && message.author.id !== message.guild.owner.id) {
-        return message.channel.send("You can\'t ban that member due to their roles being higher than yours or they are the owner")
-    
+client.on('message', async message => {
+    if(message.content.startsWith(`${PREFIX}ban`)) {
+        const reason = args.slice(2).join(" ")
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You don\'t have permission to do this command!")
+        if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send("I don\'t have permission to ban members")
+        if (!args[1]) return message.channel.send("You need to specify someone to ban")
+        if (!mentionedMember) return message.channel.send("I can\'t find that member")
+        if (mentionedMember.roles.highest.position >= message.member.roles.highest.position && message.author.id !== message.guild.owner.id) {
+            return message.channel.send("You can\'t ban that member due to their roles being higher than yours or they are the owner")
+        
+        }
+        if (mentionedMember.id === message.author.id) return message.channel.send("Why would you want to ban yourself?")
+        if (mentionedMember.bannable) {
+            var embed = new Discord.MessageEmbed()
+            .setAuthor(`${message.author.username} - (${message.author.id})`, message.author.displayAvatarURL())
+            .setThumbnail(mentionedMember.user.displayAvatarURL())
+            .setColor('#ebb734')
+            .setDescription(`
+    **Member:** ${mentionedMember.user.username} = (${mentionedMember.user.id})
+    **Action:** Ban
+    **Reason:** ${reason || "Undefined"}
+    **Channel:** ${message.channel}
+    **Time:** ${moment().format('llll')} 
+            `)
+            message.channel.send(embed)
+            mentionedMember.ban()
+        } else {
+            return message.channel.send("I don\'t have permission to ban this member make sure my role is above theirs")
+        }
+        return undefined
     }
-    if (mentionedMember.id === message.author.id) return message.channel.send("Why would you want to ban yourself?")
-    if (mentionedMember.bannable) {
-        var embed = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.username} - (${message.author.id})`, message.author.displayAvatarURL())
-        .setThumbnail(mentionedMember.user.displayAvatarURL())
-        .setColor('#ebb734')
-        .setDescription(`
-**Member:** ${mentionedMember.user.username} = (${mentionedMember.user.id})
-**Action:** Ban
-**Reason:** ${reason || "Undefined"}
-**Channel:** ${message.channel}
-**Time:** ${moment().format('llll')} 
-        `)
-        message.channel.send(embed)
-        mentionedMember.ban()
-    } else {
-        return message.channel.send("I don\'t have permission to ban this member make sure my role is above theirs")
-    }
-    return undefined
-}
+})
+
 
 
 
