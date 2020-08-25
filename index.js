@@ -345,7 +345,7 @@ client.on('message', async message => {
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`$changelog2 ${args[0]}`)) {
-        const changelog = new Discord.MessageEmbed()
+        const changelogembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setTitle("<@&747766531353477160>")
         .setDescription("**Bot Update V1.2** ***Alpha Version***")
@@ -355,7 +355,7 @@ client.on('message', async message => {
         .addField("```1-) Added Moderation Commands.```", "\u200B")
         .setFooter("That's all in changelog v1.2")
         .setTimestamp()
-        message.channel.send(changelog)
+        message.channel.send(changelogembed)
     }
 })
 
