@@ -245,6 +245,7 @@ client.on('message', async message => {
         .addField("⚠️ **Covid-19** ⚠️", "``$help covid``", true)
         .addField("👷 **Support** 👷", "``$help support``", true)
         .addField("❗ **Invite** ❗", "``$help invite``", true)
+        .addField("👮 **Moderator** 👮", "``$help moderator``", true)
         message.channel.send(helpmainembed)
     }
 })
@@ -318,8 +319,21 @@ client.on('message', async message => {
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Help for Covid-19")
-        .setDescription("Write **$covid** to check global covid stats and **$covid <countryName>** to check country covid stats")
+        .setDescription("Write **$covid** to check global covid stats and **$covid {countryName}** to check country covid stats")
+        .setFooter("{} means it is optional")
         message.channel.send(covidembed)
+    }
+})
+
+client.on('message', async message => {
+    if(message.content.startsWith("$help moderator")) {
+        const modembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Help for Moderator")
+        .setDescription("Write **$kick <memberName>** to kick someone and **$ban <memberName> to ban someone!")
+        .setFooter("<> means it is required")
+        message.channel.send(modembed)
     }
 })
 //help command
