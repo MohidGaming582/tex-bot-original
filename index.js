@@ -339,4 +339,25 @@ client.on('message', async message => {
 })
 //help command
 
+//only dev command
+
+client.on('message', async message => {
+    let devID = '744941579487412336'
+
+    if(message.author.id !== devID) return;
+
+    if(message.content.startsWith("$changelogv1.2")) {
+        const changelog = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("<@&746328566366732338>")
+        .setDescription("**Bot Update V1.2** *Alpha Version*")
+        .addField("\u200B", "\u200B")
+        .addField("``Changelog V1.2``")
+        .addField("```1-) Added Moderation Commands.```")
+        .setFooter("That's all in changelog v1.2!")
+        .setTimestamp()
+        message.channel.send(changelog)
+    }
+})
+
 client.login(process.env.token);
