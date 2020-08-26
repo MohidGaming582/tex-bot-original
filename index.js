@@ -319,10 +319,23 @@ client.on('message', async message => {
 
 //changelog commands
 
-
+client.on('message', async message => {
+    if(message.content.startsWith(`${PREFIX}changelog v1.1 ${args[1]}`)) {
+        const embed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setDescription("**Bot Update V1.1** ***(Alpha Version)***")
+        .setColor("GREEN")
+        .addField("\u200B", "\u200B")
+        .addField("``Changelog V1.1``", "\u200B")
+        .addField("```1-) Changed the help command.```", "\u200B")
+        .setFooter("Write ``$changelog v1.2`` to check the next changelog")
+        .setTimestamp()
+        message.channel.send(embed)
+    }
+})
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog`)) {
+    if(message.content.startsWith(`${PREFIX}changelog v1.2.1 ${args[1]}`)) {
         const args = message.content.substring(PREFIX.length).split(" ")
         const changelogembed2 = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -331,9 +344,38 @@ client.on('message', async message => {
         .addField("\u200B", "\u200B")
         .addField("``Changelog V1.2.1``", "\u200B")
         .addField("```1-) Changed invite and support commands to embeds.```", "\u200B")
-        .setFooter("That's all in changelog v1.2.1")
+        .setFooter("Write ``$changelog v1.2.2`` to check the next changelog")
         .setTimestamp()
         message.channel.send(changelogembed2)
+    }
+})
+
+client.on('message', async message => {
+    if(message.content.startsWith(`${PREFIX}changelog v1.2 ${args[1]}`)) {
+        const embed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
+        .setColor("GREEN")
+        .addField("\u200B", "\u200B")
+        .addField("``Changelog V1.2``", "\u200B")
+        .addField("```1-) Added kick and ban commands.```", "\u200B")
+        .setFooter("Write ``$changelog v1.2.1`` to check the next changelog") 
+        .setTimestamp()
+        message.channel.send(embed)
+    }
+})
+
+client.on('message', async message => {
+    if(message.content.startsWith(`${PREFIX}changelog v1.2.2 ${args[1]}`)) {
+        const embed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setDescription("**Bot Update V1.2.2** ***(Alpha Version)***")
+        .setColor("GREEN")
+        .addField("\u200B", "\u200B")
+        .addField("``Changelog V1.2.2``", "\u200B")
+        .addField("```1-) Added changelog commands```", "\u200B")
+        .setFooter("That\'s all in changelog v1.2.2")
+        message.channel.send(embed)
     }
 })
 
@@ -370,7 +412,5 @@ client.on('message', async message => {
         message.channel.send(supportembed)
     }
 })
-
-//support command
 
 client.login(process.env.token);
