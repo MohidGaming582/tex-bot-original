@@ -222,11 +222,6 @@ client.on('message', async message => {
 
 //invite link
 
-client.on('message', async message => {
-    if (message.content === "$invite") {
-        message.channel.send("Invite this bot to your server https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot")
-    }
-})
 
 //invite link
 
@@ -366,7 +361,7 @@ client.on('message', async message => {
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Invite The Bot To Your Server")
         .setURL("https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot")
-        .addField("👾 Invite Me! 👾", "Click [Invite Me] ( https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot)") 
+        .addField("👾 Invite Me! 👾", "Click [Invite Me](https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot)") 
         .setColor("GREEN")
         .setFooter("Invite this bot to your server!")
         message.channel.send(inviteembed)
