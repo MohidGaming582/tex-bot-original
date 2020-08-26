@@ -209,22 +209,6 @@ client.on('message', async message => {
 
 //covid-19 bot
 
-
-//support bot
-
-client.on('message', async message => {
-    if (message.content === "$support") {
-        message.channel.send("Join our support server https://discord.gg/gF7d2HJ")
-    }
-})
-
-//support bot
-
-//invite link
-
-
-//invite link
-
 //help command
 
 client.on('message', async message => {
@@ -361,12 +345,25 @@ client.on('message', async message => {
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Invite The Bot To Your Server")
         .setURL("https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot")
-        .addField("👾 Invite Me! 👾", "Click [Invite Me](https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot)") 
+        .addField("👾 Invite Me! 👾", "[Invite](https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot) The Bot!") 
         .setColor("GREEN")
         .setFooter("Invite this bot to your server!")
         message.channel.send(inviteembed)
     }
 })
 
+client,on('message', async message => {
+    if(message.content === "$support") {
+        const supportembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Join The Support Server")
+        .setURL("https://discord.gg/gF7d2HJ")
+        .addField("👷 Join Support Server! 👷", "[Join](https://discord.gg/gF7d2HJ) Support Server!")
+        .setColor("BLUE")
+        .setFooter("Join the support server!")
+        message.channel.send(supportembed)
+    }
+})
 
 client.login(process.env.token);
