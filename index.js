@@ -337,6 +337,7 @@ client.on('message', async message => {
     }
 })
 
+//invite command
 
 client.on('message', async message => {
     if(message.content === "$invite") {
@@ -352,6 +353,10 @@ client.on('message', async message => {
     }
 })
 
+//invite command
+
+//support command
+
 client,on('message', async message => {
     if(message.content === "$support") {
         const supportembed = new Discord.MessageEmbed()
@@ -365,5 +370,7 @@ client,on('message', async message => {
         message.channel.send(supportembed)
     }
 })
+
+//support command
 
 client.login(process.env.token);
