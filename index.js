@@ -211,7 +211,24 @@ client.on('message', async message => {
 
 //help command
 
-
+client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    if(message.content.startsWith(`${PREFIX}help ${args[1]}`)) {
+        const helpmainembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setColor("BLUE")
+        .addField("💸 **Economy** 💸", "``$help economy``", true)
+        .addField("🤣 **Meme** 🤣", "``$help meme``", true)
+        .addField("😆 **Joke** 😆", "``$help joke``", true)
+        .addField("🖥️ **CnJoke** 🖥️", "``$help cnjoke``", true)
+        .addField("⚠️ **Covid-19** ⚠️", "``$help covid``", true)
+        .addField("👷 **Support** 👷", "``$help support``", true)
+        .addField("❗ **Invite** ❗", "``$help invite``", true)
+        .addField("👮 **Moderator** 👮", "``$help moderator``", true)
+        message.channel.send(helpmainembed)
+    }
+})
 client.on('message', async message => {
     if(message.content.startsWith("$help economy")) {
         const economyembed = new Discord.MessageEmbed()
@@ -299,30 +316,12 @@ client.on('message', async message => {
         message.channel.send(modembed)
     }
 })
-
-client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help`)) {
-        const embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
-        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
-        .setColor("BLUE")
-        .addField("💸 **Economy** 💸", "``$help economy``", true)
-        .addField("🤣 **Meme** 🤣", "``$help meme``", true)
-        .addField("😆 **Joke** 😆", "``$help joke``", true)
-        .addField("🖥️ **CnJoke** 🖥️", "``$help cnjoke``", true)
-        .addField("⚠️ **Covid-19** ⚠️", "``$help covid``", true)
-        .addField("👷 **Support** 👷", "``$help support``", true)
-        .addField("❗ **Invite** ❗", "``$help invite``", true)
-        .addField("👮 **Moderator** 👮", "``$help moderator``", true)
-        message.channel.send(embed)
-    }
-})
-
 //help command
 
 //changelog commands
 
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}changelog ${args[1]}`)) {
         const embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
