@@ -341,36 +341,37 @@ client.on('message', async message => {
 //changelog commands
 
 
-client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog ${args[0]}`)) {
-        const args = message.content.substring(PREFIX.length).split(" ")
-        const changelogembed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.1** ***(Alpha Version)***")
-        .setColor("GREEN")
-        .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.1``", "\u200B")
-        .addField("```1-) Changed help command layout.```", "\u200B")
-        .setFooter("That's all in changelog v1.1. Write $changelog2 to check changelog of V1.2")
-        .setTimestamp()
-        message.channel.send(changelogembed)
-    }
-})
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog2 ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}changelog`)) {
         const args = message.content.substring(PREFIX.length).split(" ")
         const changelogembed2 = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
+        .setDescription("**Bot Update V1.2.1** ***(Alpha Version)***")
         .setColor("GREEN")
         .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.2``", "\u200B")
-        .addField("```1-) Added kick and ban commands.```", "\u200B")
-        .setFooter("That's all in changelog v1.2")
+        .addField("``Changelog V1.2.1``", "\u200B")
+        .addField("```1-) Changed invite and support commands to embeds.```", "\u200B")
+        .setFooter("That's all in changelog v1.2.1")
         .setTimestamp()
         message.channel.send(changelogembed2)
     }
 })
+
+
+client.on('message', async message => {
+    if(message.content === "$invite") {
+        const inviteembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Invite The Bot To Your Server")
+        .setURL("https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot")
+        .addField("👾 Invite Me! 👾", "Click [Invite Me] ( https://discord.com/api/oauth2/authorize?client_id=743768266777821214&permissions=8&scope=bot)") 
+        .setColor("GREEN")
+        .setFooter("Invite this bot to your server!")
+        message.channel.send(inviteembed)
+    }
+})
+
 
 client.login(process.env.token);
