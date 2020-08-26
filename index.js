@@ -271,7 +271,7 @@ client.on('message', async message => {
 })        
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help support ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help support ${args[1]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
