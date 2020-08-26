@@ -320,7 +320,22 @@ client.on('message', async message => {
 //changelog commands
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog v1.1 ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}changelog ${args[1]}`)) {
+        const embed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setColor("GREEN")
+        .setDescription(`
+**Changelog V1.1** -- ``$changelog v1.1``
+**Changelog V1.2** -- ``$changelog v1.2``
+**Changelog V1.2.1** -- ``$changelog v1.2.1``
+        `)
+        .setTimestamp()
+        message.channel.send(embed)
+    }
+})
+
+client.on('message', async message => {
+    if(message.content.startsWith("$changelog v1.1")) {
         const embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setDescription("**Bot Update V1.1** ***(Alpha Version)***")
@@ -334,8 +349,9 @@ client.on('message', async message => {
     }
 })
 
+
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog v1.2.1 ${args[1]}`)) {
+    if(message.content.startsWith("$changelog v1.2.1")) {
         const args = message.content.substring(PREFIX.length).split(" ")
         const changelogembed2 = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -351,7 +367,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog v1.2 ${args[1]}`)) {
+    if(message.content.startsWith("$changelog v1.2")) {
         const embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
@@ -366,7 +382,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}changelog v1.2.2 ${args[1]}`)) {
+    if(message.content.startsWith("$changelog v1.2.2")) {
         const embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setDescription("**Bot Update V1.2.2** ***(Alpha Version)***")
