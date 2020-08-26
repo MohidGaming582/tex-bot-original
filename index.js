@@ -357,7 +357,7 @@ client.on('message', async message => {
 
 //support command
 
-client,on('message', async message => {
+client.on('message', async message => {
     if(message.content === "$support") {
         const supportembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
