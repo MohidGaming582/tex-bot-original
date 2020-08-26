@@ -302,7 +302,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     if(message.content.startsWith(`${PREFIX}help`)) {
-        const helpmainembed = new Discord.MessageEmbed()
+        const embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setColor("BLUE")
@@ -314,7 +314,7 @@ client.on('message', async message => {
         .addField("👷 **Support** 👷", "``$help support``", true)
         .addField("❗ **Invite** ❗", "``$help invite``", true)
         .addField("👮 **Moderator** 👮", "``$help moderator``", true)
-        message.channel.send(helpmainembed)
+        message.channel.send(embed)
     }
 })
 
