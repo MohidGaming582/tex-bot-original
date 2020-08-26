@@ -212,7 +212,7 @@ client.on('message', async message => {
 //help command
 
 client.on('message', async message => {
-    if(message.content.startsWith("$help")) {
+    if(message.content.startsWith(`${PREFIX}help ${args[1]}`)) {
         const helpmainembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -271,7 +271,7 @@ client.on('message', async message => {
 })        
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help support ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help support`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
