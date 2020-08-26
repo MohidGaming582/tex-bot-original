@@ -212,8 +212,7 @@ client.on('message', async message => {
 //help command
 
 client.on('message', async message => {
-    const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help}`)) {
         const helpmainembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -370,7 +369,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`$${PREFIX}changelog v1.2 ${args[1]}`)) {
+    if(message.content.startsWith(`$${PREFIX}changelog v1.2`)) {
         const embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
