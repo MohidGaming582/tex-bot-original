@@ -166,7 +166,7 @@ db.add(`money_${message.guild.id}_${user.id}`, args[1])
 db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
 
 
-}
+} //please work now
 })
 
 
