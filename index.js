@@ -122,7 +122,7 @@ if (message.content.startsWith("$beg")) {
     } 
 }
 
-if(!message.content.startsWith('$pay'))return;  
+if(!message.content.startsWith('$pay')) {  
 
 let user = message.mentions.members.first() 
 
@@ -165,8 +165,8 @@ message.channel.send(embed5)
 db.add(`money_${message.guild.id}_${user.id}`, args[1])
 db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
 
-}
 
+}
 })
 
 
