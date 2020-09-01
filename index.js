@@ -124,13 +124,15 @@ if (message.content.startsWith("$beg")) {
 if (message.content.startsWith("$pay")) {
     let users = message.mentions.members.first()
 
+    let args = message.content.slice(prefix.length).split(' ')
+
     let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
   
     let embed1 = new Discord.MessageEmbed()
     .setColor("RED")
     .setDescription(`:x: Mention someone to pay`);
   
-    if (!user) {
+    if (!users) {
         return message.channel.send(embed1)
     }
     let embed2 = new Discord.MessageEmbed()
@@ -140,12 +142,13 @@ if (message.content.startsWith("$pay")) {
     if (!args[1]) {
         return message.channel.send(embed2)
     }
-  
-      if (isNaN(args[1])) return message.channel.send({embed: {
-                      color: 16734039,
-                      description: "You must enter the amount of money to pay!"
-                  }})
-  
+    
+    const embed6 = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setDescription(":x: You must enter an amount of money to pay!")
+      
+    if (isNaN(args[1])) return message.channel.send(embed6)
+   
     let embed3 = new Discord.MessageEmbed()
     .setColor("RED")
     .setDescription(`:x: You can't pay someone negative money`);
