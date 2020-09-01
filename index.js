@@ -264,7 +264,7 @@ client.on('message', async message => {
         message.channel.send(coronaembed)
     } else if (message.content.startsWith("$covid"))
     var prefix = "$"
-    const countrycovid = message.content.slice(PREFIX.length).split(' ')
+    const countrycovid = message.content.slice(prefix.length).split(' ')
     const countrydata = await api.countries({country: countrycovid})
 
     const countryembed = new Discord.MessageEmbed()
