@@ -18,7 +18,7 @@ const api = require('covidapi')
 //startup message
 
 client.on('ready', async() => {
-    console.log("Tex Bot is ready to rumble!")
+    console.log(`Tex Bot is ready to rumble in `)
 })
 
 //startup message
@@ -122,19 +122,18 @@ if (message.content.startsWith("$beg")) {
 }
 
 if (message.content.startsWith("$pay")) {
-    let user = message.mentions.members.first() 
 
     let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
   
     let embed1 = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor("RED")
     .setDescription(`:x: Mention someone to pay`);
   
     if (!user) {
         return message.channel.send(embed1)
     }
     let embed2 = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor("RED")
     .setDescription(`:x: Specify an amount to pay`);
     
     if (!args[1]) {
@@ -147,14 +146,14 @@ if (message.content.startsWith("$pay")) {
                   }})
   
     let embed3 = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor("RED")
     .setDescription(`:x: You can't pay someone negative money`);
   
     if (message.content.includes('-')) { 
         return message.channel.send(embed3)
     }
     let embed4 = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor("RED")
     .setDescription(`:x: You don't have that much money`);
   
     if (member < args[1]) {
@@ -162,7 +161,7 @@ if (message.content.startsWith("$pay")) {
     }
   
     let embed5 = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor("GREEN")
     .setDescription(`:white_check_mark:  You have payed ${user.user.username} ${args[1]} coins`);
   
     message.channel.send(embed5)
@@ -265,7 +264,7 @@ client.on('message', async message => {
         message.channel.send(coronaembed)
     } else if (message.content.startsWith("$covid"))
     var prefix = "$"
-    const countrycovid = message.content.slice(prefix.length).split(' ')
+    const countrycovid = message.content.slice(PREFIX.length).split(' ')
     const countrydata = await api.countries({country: countrycovid})
 
     const countryembed = new Discord.MessageEmbed()
