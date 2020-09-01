@@ -122,7 +122,7 @@ if (message.content.startsWith("$beg")) {
 }
 
 if (message.content.startsWith("$pay")) {
-    let user = message.mentions.members.first()
+    let users = message.mentions.members.first()
 
     let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
   
@@ -166,7 +166,7 @@ if (message.content.startsWith("$pay")) {
     .setDescription(`:white_check_mark:  You have payed ${user.user.username} ${args[1]} coins`);
   
     message.channel.send(embed5)
-    db.add(`money_${message.guild.id}_${user.id}`, args[1])
+    db.add(`money_${message.guild.id}_${users.id}`, args[1])
     db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
   
 }
