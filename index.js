@@ -175,12 +175,8 @@ if (message.content.startsWith("$pay")) {
 let hourlytimeout = 86400000
 let hourlyamount = 5
 
-const embed6 = new Discord.MessageEmbed()
-.setDescription(":x: This command can only be executed by patreon supporters")
-.setColor("RED")
-
-if (message.content.startsWith("hourly")) {
-    if (message.member.roles.has('740081399318446089')) return message.channel.send(embed6)
+if (message.content.startsWith("$hourly")) {
+    if (message.member.roles.has('740081399318446089')) return;
     let hourly = await db.fetch(`hourly_${message.author.id}`);
 
     if (hourly != null && hourlytimeout - (Date.now() - hourly) > 0) {
