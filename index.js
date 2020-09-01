@@ -122,6 +122,7 @@ if (message.content.startsWith("$beg")) {
 }
 
 if (message.content.startsWith("$pay")) {
+    let user = message.mentions.members.first()
 
     let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
   
