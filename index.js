@@ -17,9 +17,16 @@ const api = require('covidapi')
 
 //startup message
 
-client.on('ready', async() => {
-    console.log(`Tex Bot is ready to rumble in `)
-})
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "Dm for help! Prefix is $",  //The message shown
+            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+ });
 
 //startup message
 
@@ -510,6 +517,10 @@ client.on('message', async message => {
     }
 })
 
-//music bot part
+//al chatbot
+
+client.on('message', async message => {
+    
+})
 
 client.login(process.env.token);
