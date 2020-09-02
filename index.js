@@ -65,7 +65,7 @@ client.on('message', async message => {
     let hourlyamount = 5
 
     if (message.content.startsWith("$hourly")) {
-        if (message.member.roles.has('744950464638091425')) return;
+        if (message.member.roles.cache.has('744950464638091425')) return;
         let hourly = await db.fetch(`hourly_${message.author.id}`);
 
         if (hourly != null && timeout - (Date.now() - hourly) > 0) {
