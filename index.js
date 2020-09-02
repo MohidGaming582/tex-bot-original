@@ -73,10 +73,10 @@ client.on('message', async message => {
     .addField("Only For Patrons", "This command can only be executed by patrons! [Become a patron now!](https://www.patreon.com/texbotpatreon)")
     
     if (message.content.startsWith("$hourly")) {
-        if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send(embed7)
-        let hourly = await db.fetch(`hourly_${message.author.id}`);
         let hourlytimeout = 3600000
         let hourlyamount = 10
+        if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send(embed7)
+        let hourly = await db.fetch(`hourly_${message.author.id}`);
 
         if (hourly != null && timeout - (Date.now() - hourly) > 0) {
             let hourlytime = ms(hourlytimeout - (Date.now() - hourly));
