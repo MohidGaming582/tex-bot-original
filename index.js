@@ -28,9 +28,9 @@ client.on("ready", () =>{
     });
  });
 
- bot.on('ready', () => {
-    bot.user.setStatus('available')
-    bot.user.setPresence({
+ client.on('ready', () => {
+    client.user.setStatus('available')
+    client.user.setPresence({
         game: {
             name: '$help | Dm for help',
             type: "PLAYING"
