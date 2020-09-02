@@ -215,34 +215,6 @@ if (message.content.startsWith("$pay")) {
     db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
   
 }
-
-
-let hourlytimeout = 86400000
-let hourlyamount = 5
-
-if (message.content.startsWith("$hourly")) {
-    if (message.member.roles.has('740081399318446089')) return;
-    let hourly = await db.fetch(`hourly_${message.author.id}`);
-
-    if (hourly != null && hourlytimeout - (Date.now() - hourly) > 0) {
-        let hourlytime = ms(hourlytimeout - (Date.now() - hourly));
-        message.channel.send(`You already collected your daily coins, you can come back in **${hourlytime.hours}h ${hourlytime.minutes}m ${hourlytime.seconds}s**`)
-
-
-    } else {
-        let hourlyembed = new Discord.MessageEmbed()
-        .setAuthor(`Only For Patreon Supporters`, message.author.displayAvatarURL())
-        .setColor("GREEN")
-        .setDescription(`**Hourly Rewards**`)
-        .addField(`Collected`, amount)
-        message.channel.send(hourlyembed)
-
-        db.add(`money_${message.author.id}`, hourlyamount)
-        db.add(`hourly_${message.author.id}`, Date.now())
-    }
-}
-
-
 })
 
 //economy bot
