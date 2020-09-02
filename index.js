@@ -65,12 +65,12 @@ client.on('message', async message => {
     let hourlyamount = 5
 
     if (message.content.startsWith("$hourly")) {
-        if (!message.member.roles.cache.has('744950464638091425')) return;
+        if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send("This command can only be executed by patreon supporters")
         let hourly = await db.fetch(`hourly_${message.author.id}`);
 
         if (hourly != null && timeout - (Date.now() - hourly) > 0) {
             let time = ms(hourlytimeout - (Date.now() - hourly));
-            message.channel.send(`You already collected your hourly coins, you can come back in **${time.hours}h ${time.minutes}m ${time.seconds}s**`)
+            message.channel.send(`You already collected your hourly coins, you can come back in ${time.minutes}m ${time.seconds}s**`)
 
 
         } else {
