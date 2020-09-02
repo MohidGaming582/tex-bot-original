@@ -62,10 +62,17 @@ client.on('message', async message => {
 
 
     let hourlytimeout = 3600000
-    let hourlyamount = 5
+    let hourlyamount = 10
 
+    const embed7 = new Discord.MessageEmbed()
+    .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+    .setColor("#FF0000")
+    .setTitle("Support Us On Patreon", "https://i.imgur.com/xkWumhG.png")
+    .setURL("https://www.patreon.com/texbotpatreon")
+    .addField("Only Patreon", "This command can only be execute by patreon supporters! [Support us on patreon now!](https://www.patreon.com/texbotpatreon)")
+    
     if (message.content.startsWith("$hourly")) {
-        if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send("This command can only be executed by patreon supporters")
+        if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send(embed7)
         let hourly = await db.fetch(`hourly_${message.author.id}`);
 
         if (hourly != null && timeout - (Date.now() - hourly) > 0) {
@@ -327,7 +334,7 @@ client.on('message', async message => {
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Help for Economy")
-        .setDescription("Write **$bal** to check your balance, **$daily** to claim your daily reward, **$work** to work, and **$beg** to beg for money!")
+        .setDescription("Write **$bal** to check your balance, **$daily** to claim your daily reward, **$hourly** to claim your hourly reward, **$work** to work, and **$beg** to beg for money!")
         message.channel.send(economyembed)
     }
 })
