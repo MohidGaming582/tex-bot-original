@@ -28,9 +28,15 @@ client.on("ready", () =>{
     });
  });
 
- client.user.setActivity('$help | Dm for help!', { type: 'PLAYING' })
-  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-  .catch(console.error);
+ bot.on('ready', () => {
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: '$help | Dm for help',
+            type: "PLAYING"
+        }
+    });
+});
 
 //startup message
 
