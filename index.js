@@ -28,6 +28,10 @@ client.on("ready", () =>{
     });
  });
 
+ client.user.setActivity('$help | Dm for help!', { type: 'PLAYING' })
+  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+  .catch(console.error);
+
 //startup message
 
 //economy bot
