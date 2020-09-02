@@ -69,8 +69,8 @@ client.on('message', async message => {
         let hourly = await db.fetch(`hourly_${message.author.id}`);
 
         if (hourly != null && timeout - (Date.now() - hourly) > 0) {
-            let time = ms(hourlytimeout - (Date.now() - hourly));
-            message.channel.send(`You already collected your hourly coins, you can come back in ${time.minutes}m ${time.seconds}s**`)
+            let hourlytime = ms(hourlytimeout - (Date.now() - hourly));
+            message.channel.send(`You already collected your hourly coins, you can come back in ${hourlytime.minutes}m ${hourlytime.seconds}s**`)
 
 
         } else {
