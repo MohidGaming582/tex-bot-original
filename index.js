@@ -67,9 +67,10 @@ client.on('message', async message => {
     const embed7 = new Discord.MessageEmbed()
     .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
     .setColor("#FF0000")
-    .setTitle("Support Us On Patreon", "https://i.imgur.com/xkWumhG.png")
+    .setTitle("Become a Patron!")
+    .setThumbnail("https://i.imgur.com/xkWumhG.png")
     .setURL("https://www.patreon.com/texbotpatreon")
-    .addField("Only Patreon", "This command can only be execute by patreon supporters! [Support us on patreon now!](https://www.patreon.com/texbotpatreon)")
+    .addField("Only For Patrons", "This command can only be execute by patrons! [Become a patron now!](https://www.patreon.com/texbotpatreon)")
     
     if (message.content.startsWith("$hourly")) {
         if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send(embed7)
@@ -82,7 +83,7 @@ client.on('message', async message => {
 
         } else {
             let embed = new Discord.MessageEmbed()
-            .setAuthor(`Patreon Only`, message.author.displayAvatarURL())
+            .setAuthor(`Patron Only`, message.author.displayAvatarURL())
             .setColor("GREEN")
             .setDescription(`**Hourly Rewards**`)
             .addField(`Collected`, hourlyamount)
