@@ -70,7 +70,7 @@ client.on('message', async message => {
     .setTitle("Become a Patron!")
     .setThumbnail("https://i.imgur.com/xkWumhG.png")
     .setURL("https://www.patreon.com/texbotpatreon")
-    .addField("Only For Patrons", "This command can only be execute by patrons! [Become a patron now!](https://www.patreon.com/texbotpatreon)")
+    .addField("Only For Patrons", "This command can only be executed by patrons! [Become a patron now!](https://www.patreon.com/texbotpatreon)")
     
     if (message.content.startsWith("$hourly")) {
         if (!message.member.roles.cache.has('744950464638091425')) return message.channel.send(embed7)
