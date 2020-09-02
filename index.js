@@ -61,6 +61,31 @@ client.on('message', async message => {
     } 
 
 
+    let hourlytimeout = 3600000
+    let hourlyamount = 5
+
+    if (message.content.startsWith("$hourly")) {
+        if (message.member.roles.has('744950464638091425')) return;
+        let hourly = await db.fetch(`hourly_${message.author.id}`);
+
+        if (hourly != null && timeout - (Date.now() - hourly) > 0) {
+            let time = ms(hourlytimeout - (Date.now() - hourly));
+            message.channel.send(`You already collected your hourly coins, you can come back in **${time.hours}h ${time.minutes}m ${time.seconds}s**`)
+
+
+        } else {
+            let embed = new Discord.MessageEmbed()
+            .setAuthor(`Patreon Only`, message.author.displayAvatarURL())
+            .setColor("GREEN")
+            .setDescription(`**Hourly Rewards**`)
+            .addField(`Collected`, hourlyamount)
+            message.channel.send(embed)
+
+            db.add(`money_${message.author.id}`, hourlyamount)
+            db.add(`hourly_${message.author.id}`, Date.now())
+        }
+    }
+
     let timeout = 86400000
     let amount = 10
 
