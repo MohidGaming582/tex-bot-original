@@ -229,7 +229,6 @@ if (message.content.startsWith("$pay")) {
 
 //economy bot
 
-
 //meme bot 
 
 client.on('message', async message => {
