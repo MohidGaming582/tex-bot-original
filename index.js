@@ -199,7 +199,7 @@ if (message.content.startsWith("$pay")) {
     .setColor("RED")
     .setDescription(":x: You must enter an amount of money to pay!")
       
-    if (isNaN(args[1])) return message.channel.send(embed6)
+    if (isNaN(Math.floor(args[1]))) return message.channel.send(embed6)
    
     let embed3 = new Discord.MessageEmbed()
     .setColor("RED")
@@ -221,8 +221,8 @@ if (message.content.startsWith("$pay")) {
     .setDescription(`:white_check_mark:  You have payed ${user.user.username} ${args[1]} coins`);
   
     message.channel.send(embed5)
-    db.add(`money_${message.guild.id}_${users.id}`, args[1])
-    db.subtract(`money_${message.guild.id}_${message.author.id}`, args[1])
+    db.add(`money_${message.guild.id}_${users.id}`, Math.floor(args[1]))
+    db.subtract(`money_${message.guild.id}_${message.author.id}`, Math.floor(args[1]))
   
 }
 })
@@ -534,10 +534,9 @@ client.on('message', async message => {
     }
 })
 
-//al chatbot
+///random
 
-client.on('message', async message => {
-    
-})
+
+
 
 client.login(process.env.token);
