@@ -481,7 +481,6 @@ client.on ('message', async message => {
         .addField("•Created At•", `${message.guild.createdAt}`, false)
         .addField("•Region•", `${message.guild.region}`, false)
         .addField("•Verification Level•", `${message.guild.verificationLevel}`, false)
-        .addField("•Roles•", `${message.guild.roles.cache}`, false)
         .addField("•Afk Timeout•", `${message.guild.afkTimeout}`, false)
         .addField("•Afk Channel", `${message.guild.afkChannel} - ${message.guild.afkChannelID}`, false)
         .addField("\u200B", "\u200B")
