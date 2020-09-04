@@ -332,7 +332,7 @@ client.on('message', async message => {
 })
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help economy ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help economy`)) {
         const economyembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -343,7 +343,7 @@ client.on('message', async message => {
 })
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help meme ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help meme`)) {
         const memeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -354,7 +354,7 @@ client.on('message', async message => {
 })
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help joke ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help joke`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -366,7 +366,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help cnjoke ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help cnjoke`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -378,7 +378,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help support ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help support`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -390,7 +390,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help invite ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help invite`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -402,7 +402,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help covid ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help covid`)) {
         const covidembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -415,7 +415,7 @@ client.on('message', async message => {
 
 client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}help moderator ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help moderator`)) {
         const modembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -461,6 +461,33 @@ client.on('message', async message => {
         .setColor("BLUE")
         .setFooter("Join the support server!")
         message.channel.send(supportembed)
+    }
+})
+
+//server-info
+
+client.on ('message', async message => {
+    if (message.content.startsWith(`${PREFIX}serverinfo`)) {
+        const args = message.content.substring(PREFIX.length).split(" ")
+        const mentionedMember = message.mentions.members.first()
+
+        let embed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setColor("BLUE")
+        .setTitle("Server Info")
+        .addField("❯General Info", "\u200B")
+        .addField("•Server Name•", `${message.guild.name}`, false)   
+        .addField("•Owner•", `${message.guild.ownerID}`, false)
+        .addField("•Created At•", `${message.guild.createdAt}`, false)
+        .addField("•Region•", `${message.guild.region}`, false)
+        .addField("•Verification Level•", `${message.guild.verificationLevel}`, false)
+        .addField("•Roles•", `${message.guild.roles.cache}`, false)
+        .addField("•Afk Timeout•", `${message.guild.afkTimeout}`, false)
+        .addField("•Afk Channel", `${message.guild.afkChannel} - ${message.guild.afkChannelID}`, false)
+        .addField("❯Member Info", "\u200B")
+        .addField("•Member Count•", `${message.guild.memberCount}`, false)
+        .setFooter(`Requested by ${message.author.tag}•`)
+        message.channel.send(embed)
     }
 })
 
