@@ -327,6 +327,8 @@ client.on('message', async message => {
         .addField("👷 **Support** 👷", "``$help support``", true)
         .addField("❗ **Invite** ❗", "``$help invite``", true)
         .addField("👮 **Moderator** 👮", "``$help moderator``", true)
+        .addField("🤖 **Bot-Info** 🤖", "``$help botinfo``", true)
+        .addField("📖 **Server-Info** 📖", "``$help serverinfo``", true)
         message.channel.send(helpmainembed)
     }
 })
@@ -425,6 +427,31 @@ client.on('message', async message => {
         message.channel.send(modembed)
     }
 })
+
+client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    if(message.content.startsWith(`${PREFIX}help serverinfo`)) {
+        const modembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Help for Server-Info")
+        .setDescription("Write **$serverinfo** to check the info of the server you are in")
+        message.channel.send(modembed)
+    }
+})
+
+client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    if(message.content.startsWith(`${PREFIX}help botinfo`)) {
+        const modembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Help for Bot-Info")
+        .setDescription("Write **$botinfo** to check the info of the bot")
+        message.channel.send(modembed)
+    }
+})
+
 //help command
 
 //changelog commands
@@ -473,9 +500,10 @@ client.on ('message', async message => {
 
         let embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setColor("BLUE")
         .setTitle("Server Info")
-        .addField("❯General Info", "\u200B", false)
+        .addField("General Info", "\u200B", false)
         .addField("•Server Name•", `${message.guild.name}`, false)   
         .addField("•Owner•", `${message.guild.owner}`, false)
         .addField("•Created At•", `${message.guild.createdAt}`, false)
@@ -486,11 +514,35 @@ client.on ('message', async message => {
         .addField("\u200B", "\u200B")
         .addField("❯Member Info", "\u200B", false)
         .addField("•Member Count•", `${message.guild.memberCount}`, false)
+        .addField("•Humans•", `${message.guild.members}`)
         .addField("•Bots•", `${message.guild.members.cache.filter(member => member.user.bot).size}`)
         .setFooter(`Requested by ${message.author.tag}•`)
+        .setTimestamp()
         message.channel.send(embed)
     }
 })
+
+//server info
+
+//bot info
+
+client.on('message', async message => {
+    if (message.content.startsWith(`${PREFIX}botinfo`)) {
+        let embed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "")
+        .setThumbnail("")
+        .setColor("BLUE")
+        .addField("❯General Info", "\u200B", false)
+        .addField("•Bot Name•", "Tex Bot#0505", false)
+        .addField("•Bot Prefix•", `$`)
+        .addField("•Servers•", `${client.guilds.size}`)
+        .addField("•Server Names", `${client.guilds.name}`)
+        .setFooter(`Reqested by ${message.author.tag}`)
+        .setTimestamp()
+        message.channel.send(embed)
+    }
+})
+//botinfo 
 
 //owo
 
