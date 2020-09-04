@@ -11,7 +11,6 @@ const fs = require('fs')
 const randomPuppy = require('random-puppy')
 const giveMeAJoke = require('discord-jokes')
 const api = require('covidapi')
-const args = message.content.substring(PREFIX.length).split(" ")
 
 //const stuff
 
@@ -332,6 +331,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help economy ${args[0]}`)) {
         const economyembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -342,6 +342,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help meme ${args[0]}`)) {
         const memeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -352,6 +353,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help joke ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -363,6 +365,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help cnjoke ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -374,6 +377,7 @@ client.on('message', async message => {
 })        
 
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help support ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -385,6 +389,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help invite ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -396,6 +401,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help covid ${args[0]}`)) {
         const covidembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
@@ -408,6 +414,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
     if(message.content.startsWith(`${PREFIX}help moderator ${args[0]}`)) {
         const modembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
