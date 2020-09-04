@@ -331,7 +331,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help economy ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help economy ${args[1]}`)) {
         const economyembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -341,7 +341,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help meme ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help meme ${args[1]}`)) {
         const memeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -351,7 +351,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help joke ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help joke ${args[1]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -362,7 +362,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help cnjoke ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help cnjoke ${args[1]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -373,7 +373,7 @@ client.on('message', async message => {
 })        
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help support ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help support ${args[1]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -384,7 +384,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help invite ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help invite ${args[1]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -395,7 +395,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help covid ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help covid ${args[1]}`)) {
         const covidembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -407,7 +407,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help moderator ${args[0]}`)) {
+    if(message.content.startsWith(`${PREFIX}help moderator ${args[1]}`)) {
         const modembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
