@@ -492,7 +492,7 @@ client.on('message', async message => {
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Help for Music")
-        .setDescription("Write **$play <music name>** to play music, **$stop** to stop the music, **$pause** to pause the music, **$resume** to unpause the music, **$queue** to add music to queue, **$skip** to skip queue, and **volume** to change volume")
+        .setDescription("Write **$play <music name>** to play music, **$stop** to stop the music, **$pause** to pause the music, **$resume** to unpause the music, **$queue** to add music to queue, **$skip** to skip queue, and **$volume** to change volume")
         message.channel.send(modembed)
     }
 })
