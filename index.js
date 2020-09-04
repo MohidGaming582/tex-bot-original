@@ -459,7 +459,7 @@ client.on('message', async message => {
 
 //owo
 
-client.on('message', message => {
+client.on('message', async message => {
     const args = message.content.substring(PREFIX.length).split(" ")
     const mentionedMember = message.mentions.members.first()
     if(message.content.startsWith(`${PREFIX}slap`)) {
@@ -478,7 +478,11 @@ client.on('message', message => {
         .setImage(slap)
         message.channel.send(embed)
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you want slap yourself......Silly!")      
-    } else if (message.content.startsWith(`${PREFIX}kill`)) {
+    }  
+})
+
+client.on('message', async message => {
+    if (message.content.startsWith(`${PREFIX}kill`)) {
         if (!args[1]) return message.channel.send("You need to mention someone to kill. You cant just kill the air...")
         if (!mentionedMember) return message.channel.send("I can\'t find that member.")
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you wantto kill yourself....Suicide is bad!")
