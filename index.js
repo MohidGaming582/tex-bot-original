@@ -492,10 +492,10 @@ client.on('message', message => {
         let kill = kills[Math.floor(Math.random()* slaps.length)]
 
         let killmessages = ["Rip...", "Oh god I can\'t watch it!", "Rest In Peace poor guy", "Well you killed him for no reason he probably respawned :/"]
-        let randomkillmessages = killmessages[Math.floor(Math.random()* killmessages.length)]
+        let randomkill = killmessages[Math.floor(Math.random()* killmessages.length)]
 
         let embed = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.tag} killed ${user.user.username}. ${randomkillmessages}`)
+        .setAuthor(`${message.author.tag} killed ${user.user.username}. ${randomkill}`)
     }
 })
 
