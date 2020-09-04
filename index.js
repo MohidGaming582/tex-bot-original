@@ -473,7 +473,7 @@ client.on('message', message => {
         let randomslapmessage = slapmessages[Math.floor(Math.random()* slapmessages.length)]
 
         let embed = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.tag} slapped ${mentionedMember.tag}. ${randomslapmessage}`, message.author.displayAvatarURL())
+        .setAuthor(`${message.author.tag} slapped ${mentionedMember}. ${randomslapmessage}`, message.author.displayAvatarURL())
         .setImage(slap)
         message.channel.send(embed)
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you want slap yourself......Silly!")      
@@ -495,8 +495,9 @@ client.on('message', message => {
         let randomkill = killmessages[Math.floor(Math.random()* killmessages.length)]
 
         let embed = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.tag} killed ${mentionedMember.tag}. ${randomkill}`)
+        .setAuthor(`${message.author.tag} killed ${mentionedMember}. ${randomkill}`)
         .setTitle(kill)
+        message.channel.send(embed)
     }
 })
 
