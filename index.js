@@ -529,8 +529,8 @@ client.on ('message', async message => {
 client.on('message', async message => {
     if (message.content.startsWith(`${PREFIX}botinfo`)) {
         let embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "")
-        .setThumbnail("")
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setColor("BLUE")
         .addField("❯General Info", "\u200B", false)
         .addField("•Bot Name•", "Tex Bot#0505", false)
