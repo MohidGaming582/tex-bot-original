@@ -496,7 +496,7 @@ client.on('message', message => {
 
         let embed = new Discord.MessageEmbed()
         .setAuthor(`${message.author.tag} killed ${mentionedMember}. ${randomkill}`)
-        .setTitle(kill)
+        .setImage(kill)
         message.channel.send(embed)
     }
 })
