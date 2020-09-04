@@ -16,25 +16,21 @@ const api = require('covidapi')
 
 //startup message
 
-client.on("ready", () =>{
-    console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-            name: "Dm for help! Prefix is $",  //The message shown
-            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
- });
+client.on("ready", () => {
+    console.log(`Logged in as ${client.user.tag}`); ////Select your own log for console
 
- client.on('ready', () => {
-    client.user.setStatus('available')
-    client.user.setPresence({
-        game: {
-            name: '$help | Dm for help',
-            type: "PLAYING"
-        }
-    });
+    setInterval(() => {
+        const statuses = [
+          '"$" Prefix',
+          '$help',
+          'Dm me for help!',
+          'Prefix is "$" | $help | Dm for help'
+        ] ////If you want add other, put a ","
+
+        const status = statuses[Math.floor(Math.random() * statuses.length)]
+        client.user.setActivity(status, { type: "PLAYING" }) //// Select the type of status, PLAYING, WATCHING, etc.
+    }, 20000) ///Set any time
+    
 });
 
 //startup message
