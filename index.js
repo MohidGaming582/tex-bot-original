@@ -360,8 +360,8 @@ client.on('message', async message => {
         .addField("👷 **Support** 👷", "``$help support``", true)
         .addField("❗ **Invite** ❗", "``$help invite``", true)
         .addField("👮 **Moderator** 👮", "``$help moderator``", true)
-        .addField("🤖 **Bot-Info** 🤖", "``$help botinfo``", true)
         .addField("📖 **Server-Info** 📖", "``$help serverinfo``", true)
+        .addField("🎶 **Music** 🎶", "``$help music``")
         message.channel.send(helpmainembed)
     }
 })
@@ -481,6 +481,18 @@ client.on('message', async message => {
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
         .setTitle("Help for Bot-Info")
         .setDescription("Write **$botinfo** to check the info of the bot")
+        message.channel.send(modembed)
+    }
+})
+
+client.on('message', async message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    if(message.content.startsWith(`${PREFIX}help music`)) {
+        const modembed = new Discord.MessageEmbed()
+        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
+        .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
+        .setTitle("Help for Music")
+        .setDescription("Write **$play <music name>** to play music, **$stop** to stop the music, **$pause** to pause the music, **$resume** to unpause the music, **$queue** to add music to queue, **$skip** to skip queue, and **volume** to change volume")
         message.channel.send(modembed)
     }
 })
