@@ -12,6 +12,43 @@ const fs = require('fs')
 const randomPuppy = require('random-puppy')
 const giveMeAJoke = require('discord-jokes')
 const api = require('covidapi')
+require("dotenv").config();
+const fs = require("fs");
+const Enmap = require("enmap");
+
+client.config = {
+  token: process.env.DISCORD_TOKEN,
+  prefix: process.env.DISCORD_PREFIX,
+  api: process.env.GOOGLE_API,
+};
+client.commands = new Enmap();
+client.queue = new Map();
+
+client.once("ready", () =>
+  console.log("Ready, Logged in as " + client.user.tag)
+);
+
+fs.readdir(__dirname + "/commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    client.commands.set(commandName, props);
+    console.log("Loading Command: "+commandName)
+  });
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(client.config.prefix) || message.author.bot)
+    return;
+  const args = message.content.slice(client.config.prefix.length).split(/ +/);
+  const commandName = args.shift().toLowerCase();
+  const command = client.commands.get(commandName);
+  if (!command) return;
+
+  command.run(client, message, args);
+});
 
 //const stuff
 
@@ -534,7 +571,25 @@ client.on('message', async message => {
     }
 })
 
-//al chatbot
+//owo
 
+client.on('message', message => {
+    const args = message.content.substring(PREFIX.length).split(" ")
+    const mentionedMember = message.mentions.members.first()
+    if(message.content.startsWith(`${PREFIX}slap`)) {
+        if (!args[1]) return message.channel.send("You need to mention someone to slap... Why do you think i can slap the air? Well actually i can because of the photosyntheses of the molecules in ur brain cells. Get poofed")
+        if (!mentionedMember) return message.channel.send("I can\'t find that member")
+        if (mentionedMember.id === message.author.id) return message.channel.send("Why do you want slap yourself......Silly!");
+        
+        let slaps = ["https://cdn.discordapp.com/attachments/750584679488290856/751099676459139133/ezgif.com-video-to-gif_1.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751091502272348310/ezgif.com-video-to-gif_2.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751106998681993256/tenor.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751107378753044521/slap_e.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751107606772318319/tenor_1.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751107955541278781/tenor_2.gif"]
+        let slap = slaps[Math.floor(Math.random()* slaps.length)]
+
+        let embed = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.tag} slapped ${user.user.username}. I bet that hurts...`, message.author.displayAvatarURL())
+        .setImage(slap)
+        message.channel.send(embed)
+        if (mentionedMember.id === message.author.id) return message.channel.send("Why do you want slap yourself......Silly!")      
+    } 
+})
 
 client.login(process.env.token);
