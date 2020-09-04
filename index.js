@@ -13,7 +13,6 @@ const randomPuppy = require('random-puppy')
 const giveMeAJoke = require('discord-jokes')
 const api = require('covidapi')
 require("dotenv").config();
-const fs = require("fs");
 const Enmap = require("enmap");
 
 client.config = {
