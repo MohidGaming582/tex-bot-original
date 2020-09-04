@@ -479,7 +479,7 @@ client.on('message', message => {
         message.channel.send(embed)
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you want slap yourself......Silly!")      
     } else if (message.content.startsWith(`${PREFIX}kill`)) {
-        if (!args[1]) return message.channel.send("You need to mention someone to kill. I cant just kill the air...")
+        if (!args[1]) return message.channel.send("You need to mention someone to kill. You cant just kill the air...")
         if (!mentionedMember) return message.channel.send("I can\'t find that member.")
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you wantto kill yourself....Suicide is bad!")
 
