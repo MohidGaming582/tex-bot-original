@@ -29,7 +29,7 @@ client.on("ready", () => {
 
         const status = statuses[Math.floor(Math.random() * statuses.length)]
         client.user.setActivity(status, { type: "PLAYING" }) //// Select the type of status, PLAYING, WATCHING, etc.
-    }, 20000) ///Set any time
+    }, 5000) ///Set any time
     
 });
 
