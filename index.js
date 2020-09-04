@@ -3,7 +3,6 @@
 
 const Discord = require("discord.js")
 const client = new Discord.Client()
-const ytdl = require('ytdl-core')
 const { PREFIX } = require('./config.json')
 const moment = require('moment')
 const db = require('quick.db')
