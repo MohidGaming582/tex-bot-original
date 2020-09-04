@@ -8,46 +8,10 @@ const { PREFIX } = require('./config.json')
 const moment = require('moment')
 const db = require('quick.db')
 const ms = require('parse-ms')
+const fs = require('fs')
 const randomPuppy = require('random-puppy')
 const giveMeAJoke = require('discord-jokes')
 const api = require('covidapi')
-require("dotenv").config();
-const fs = require('fs');
-const Enmap = require("enmap");
-
-client.config = {
-  token: process.env.DISCORD_TOKEN,
-  prefix: process.env.DISCORD_PREFIX,
-  api: process.env.GOOGLE_API,
-};
-client.commands = new Enmap();
-client.queue = new Map();
-
-client.once("ready", () =>
-  console.log("Ready, Logged in as " + client.user.tag)
-);
-
-fs.readdir(__dirname + "/commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    client.commands.set(commandName, props);
-    console.log("Loading Command: "+commandName)
-  });
-});
-
-client.on("message", (message) => {
-  if (!message.content.startsWith(client.config.prefix) || message.author.bot)
-    return;
-  const args = message.content.slice(client.config.prefix.length).split(/ +/);
-  const commandName = args.shift().toLowerCase();
-  const command = client.commands.get(commandName);
-  if (!command) return;
-
-  command.run(client, message, args);
-});
 
 //const stuff
 
@@ -368,7 +332,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith("$help economy")) {
+    if(message.content.startsWith(`${PREFIX}help economy ${args[0]}`)) {
         const economyembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -378,7 +342,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith("$help meme")) {
+    if(message.content.startsWith(`${PREFIX}help meme ${args[0]}`)) {
         const memeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -388,7 +352,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith("$help joke")) {
+    if(message.content.startsWith(`${PREFIX}help joke ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -399,7 +363,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith("$help cnjoke")) {
+    if(message.content.startsWith(`${PREFIX}help cnjoke ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -410,7 +374,7 @@ client.on('message', async message => {
 })        
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help support`)) {
+    if(message.content.startsWith(`${PREFIX}help support ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -421,7 +385,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith("$help invite")) {
+    if(message.content.startsWith(`${PREFIX}help invite ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -432,7 +396,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith("$help covid")) {
+    if(message.content.startsWith(`${PREFIX}help covid ${args[0]}`)) {
         const covidembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -444,7 +408,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith("$help moderator")) {
+    if(message.content.startsWith(`${PREFIX}help moderator ${args[0]}`)) {
         const modembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -458,83 +422,6 @@ client.on('message', async message => {
 
 //changelog commands
 
-client.on('message', async message => {
-    const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}changelog ${args[1]}`)) {
-        const embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setColor("GREEN")
-        .setDescription(`
-**Changelog V1.1** -- ``$changelog v1.1``
-**Changelog V1.2** -- ``$changelog v1.2``
-**Changelog V1.2.1** -- ``$changelog v1.2.1``
-        `)
-        .setTimestamp()
-        message.channel.send(embed)
-    }
-})
-
-client.on('message', async message => {
-    if(message.content.startsWith("$changelog v1.1")) {
-        const embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.1** ***(Alpha Version)***")
-        .setColor("GREEN")
-        .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.1``", "\u200B")
-        .addField("```1-) Changed the help command.```", "\u200B")
-        .setFooter("Write ``$changelog v1.2`` to check the next changelog")
-        .setTimestamp()
-        message.channel.send(embed)
-    }
-})
-
-
-client.on('message', async message => {
-    if(message.content.startsWith("$changelog v1.2.1")) {
-        const args = message.content.substring(PREFIX.length).split(" ")
-        const changelogembed2 = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.2.1** ***(Alpha Version)***")
-        .setColor("GREEN")
-        .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.2.1``", "\u200B")
-        .addField("```1-) Changed invite and support commands to embeds.```", "\u200B")
-        .setFooter("Write ``$changelog v1.2.2`` to check the next changelog")
-        .setTimestamp()
-        message.channel.send(changelogembed2)
-    }
-})
-
-client.on('message', async message => {
-    const args = message.content.substring(PREFIX.length).split(" ")
-    if(message.content.startsWith(`${PREFIX}changelog v1.2`)) {
-        const embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.2** ***(Alpha Version)***")
-        .setColor("GREEN")
-        .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.2``", "\u200B")
-        .addField("```1-) Added kick and ban commands.```", "\u200B")
-        .setFooter("Write ``$changelog v1.2.1`` to check the next changelog") 
-        .setTimestamp()
-        message.channel.send(embed)
-    }
-})
-
-client.on('message', async message => {
-    if(message.content.startsWith("$changelog v1.2.2")) {
-        const embed = new Discord.MessageEmbed()
-        .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
-        .setDescription("**Bot Update V1.2.2** ***(Alpha Version)***")
-        .setColor("GREEN")
-        .addField("\u200B", "\u200B")
-        .addField("``Changelog V1.2.2``", "\u200B")
-        .addField("```1-) Added changelog commands```", "\u200B")
-        .setFooter("That\'s all in changelog v1.2.2")
-        message.channel.send(embed)
-    }
-})
 
 //invite command
 
@@ -583,12 +470,28 @@ client.on('message', message => {
         let slaps = ["https://cdn.discordapp.com/attachments/750584679488290856/751099676459139133/ezgif.com-video-to-gif_1.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751091502272348310/ezgif.com-video-to-gif_2.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751106998681993256/tenor.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751107378753044521/slap_e.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751107606772318319/tenor_1.gif", "https://cdn.discordapp.com/attachments/750584679488290856/751107955541278781/tenor_2.gif"]
         let slap = slaps[Math.floor(Math.random()* slaps.length)]
 
+        let slapmessages = ["I bet it hurts...", "Dayum that hurts!", "Thank god i wasnt in place of that poor person", "He is now in hospital...", "I wish i had some hands like that 😄", "I wished I brought some popcorn with me"]
+        let randomslapmessage = slapmessages[Math.floor(Math.random()* slapmessages.length)]
+
         let embed = new Discord.MessageEmbed()
-        .setAuthor(`${message.author.tag} slapped ${user.user.username}. I bet that hurts...`, message.author.displayAvatarURL())
+        .setAuthor(`${message.author.tag} slapped ${user.user.username}. ${randomslapmessage}`, message.author.displayAvatarURL())
         .setImage(slap)
         message.channel.send(embed)
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you want slap yourself......Silly!")      
-    } 
+    } else if (message.content.startsWith(`${PREFIX}kill`)) {
+        if (!args[1]) return message.channel.send("You need to mention someone to kill. I cant just kill the air...")
+        if (!mentionedMember) return message.channel.send("I can\'t find that member.")
+        if (mentionedMember.id === message.author.id) return message.channel.send("Why do you wantto kill yourself....Suicide is bad!")
+
+        let kills = ["https://cdn.discordapp.com/attachments/751086604952797257/751132159191941260/tenor_3.gif", "https://cdn.discordapp.com/attachments/751086604952797257/751348862282760273/tenor_4.gif", "https://cdn.discordapp.com/attachments/751086604952797257/751349018239696968/giphy.gif"]
+        let kill = kills[Math.floor(Math.random()* slaps.length)]
+
+        let killmessages = ["Rip...", "Oh god I can\'t watch it!", "Rest In Peace poor guy", "Well you killed him for no reason he probably respawned :/"]
+        let randomkillmessages = killmessages[Math.floor(Math.random()* killmessages.length)]
+
+        let embed = new Discord.MessageEmbed()
+        .setAuthor(`${message.author.tag} killed ${user.user.username}. ${randomkillmessages}`)
+    }
 })
 
 client.login(process.env.token);
