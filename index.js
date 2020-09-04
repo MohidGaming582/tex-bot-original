@@ -458,7 +458,7 @@ client.on('message', async message => {
 
 //owo
 
-client.on('message', async message => {
+client.on('message', message => {
     const args = message.content.substring(PREFIX.length).split(" ")
     const mentionedMember = message.mentions.members.first()
     if(message.content.startsWith(`${PREFIX}slap`)) {
@@ -480,7 +480,7 @@ client.on('message', async message => {
     }  
 })
 
-client.on('message', async message => {
+client.on('message', message => {
     if (message.content.startsWith(`${PREFIX}kill`)) {
         if (!args[1]) return message.channel.send("You need to mention someone to kill. You cant just kill the air...")
         if (!mentionedMember) return message.channel.send("I can\'t find that member.")
