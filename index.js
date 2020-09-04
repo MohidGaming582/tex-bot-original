@@ -11,6 +11,7 @@ const fs = require('fs')
 const randomPuppy = require('random-puppy')
 const giveMeAJoke = require('discord-jokes')
 const api = require('covidapi')
+const args = message.content.substring(PREFIX.length).split(" ")
 
 //const stuff
 
@@ -314,7 +315,7 @@ client.on('message', async message => {
 //help command
 
 client.on('message', async message => {
-    if(message.content.startsWith("$help")) {
+    if(message.content.startsWith(`$help`)) {
         const helpmainembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot Commands", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -331,7 +332,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help economy ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help economy ${args[0]}`)) {
         const economyembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -341,7 +342,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help meme ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help meme ${args[0]}`)) {
         const memeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -351,7 +352,7 @@ client.on('message', async message => {
     }
 })
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help joke ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help joke ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -362,7 +363,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help cnjoke ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help cnjoke ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -373,7 +374,7 @@ client.on('message', async message => {
 })        
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help support ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help support ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -384,7 +385,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help invite ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help invite ${args[0]}`)) {
         const jokeembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -395,7 +396,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help covid ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help covid ${args[0]}`)) {
         const covidembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
@@ -407,7 +408,7 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
-    if(message.content.startsWith(`${PREFIX}help moderator ${args[1]}`)) {
+    if(message.content.startsWith(`${PREFIX}help moderator ${args[0]}`)) {
         const modembed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
