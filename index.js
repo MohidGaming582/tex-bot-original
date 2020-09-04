@@ -522,8 +522,11 @@ client.on ('message', async message => {
 
 //bot info
 
-client.on('message', async message => {
+client.on ('message', async message => {
     if (message.content.startsWith(`${PREFIX}botinfo`)) {
+        const args = message.content.substring(PREFIX.length).split(" ")
+        const mentionedMember = message.mentions.members.first()
+        
         let embed = new Discord.MessageEmbed()
         .setAuthor("Tex Bot", "https://i.imgur.com/ZHUpgyz.png")
         .setThumbnail("https://i.imgur.com/ZHUpgyz.png")
