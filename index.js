@@ -481,7 +481,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    cosnt args = message.content.substring(PREFIX.length).split(" ")
+    const args = message.content.substring(PREFIX.length).split(" ")
     const mentionedMember = message.mentions.members.first()
     if (message.content.startsWith(`${PREFIX}kill`)) {
         if (!args[1]) return message.channel.send("You need to mention someone to kill. You cant just kill the air...")
