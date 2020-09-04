@@ -489,7 +489,7 @@ client.on('message', message => {
         if (mentionedMember.id === message.author.id) return message.channel.send("Why do you wantto kill yourself....Suicide is bad!")
 
         let kills = ["https://cdn.discordapp.com/attachments/751086604952797257/751132159191941260/tenor_3.gif", "https://cdn.discordapp.com/attachments/751086604952797257/751348862282760273/tenor_4.gif", "https://cdn.discordapp.com/attachments/751086604952797257/751349018239696968/giphy.gif"]
-        let kill = kills[Math.floor(Math.random()* slaps.length)]
+        let kill = kills[Math.floor(Math.random()* kills.length)]
 
         let killmessages = ["Rip...", "Oh god I can\'t watch it!", "Rest In Peace poor guy", "Well you killed him for no reason he probably respawned :/"]
         let randomkill = killmessages[Math.floor(Math.random()* killmessages.length)]
